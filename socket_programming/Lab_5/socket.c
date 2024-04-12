@@ -33,6 +33,7 @@ int main(int argc, char *argv[])
     struct addrinfo hints, *res, *i;
     char ipstr[NI_MAXHOST];
     int status;
+    int error;
 
     // Check for required argc:
     // program name and hostname (2)
@@ -70,9 +71,7 @@ int main(int argc, char *argv[])
     // IP addresses (stored in char ipstr[NI_MAXHOST]) for a given socket address (res)
     for (i = res; i != NULL; i = i->ai_next)
     {
-        int error = getnameinfo(i->ai_addr, i->ai_addrlen, ipstr, sizeof(ipstr), NULL, 0, NI_NUMERICHOST);
-
-        if (error != 0)
+        if ((error = getnameinfo(i->ai_addr, i->ai_addrlen, ipstr, sizeof(ipstr), NULL, 0, NI_NUMERICHOST);) != 0)
         {
             fprintf(stderr, "getnameinfo: %s\n", gai_strerror(error));
             continue;
