@@ -33,7 +33,7 @@ class WLANController:
             distance = self.calculate_distance(ap_location, device_location)
 
             # Only consider APs within 1 floor distance
-            if distance < min_distance:
+            if distance <= min_distance:
                 min_distance = distance
                 closest_ap = ap_name
 
