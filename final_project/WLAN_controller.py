@@ -43,7 +43,7 @@ class WLANController:
         else:
             time.sleep(1)
             print(
-                f"Connection failed! No APs found within ({min_distance}) floor of {device}.")
+                f"Connection failed! No APs found within ({min_distance}) floor of {device} (Floor {device_location}).")
 
     def disconnect_device(self, device, device_location) -> None:
         """Function to disconnect devices from the network."""
