@@ -41,11 +41,13 @@ class AccessPoint:
         return self.__connected_devices
 
     def connect_device(self, device, device_location) -> None:
+        """Function to connect devices to APs."""
         self.__connected_devices.append(device)
         time.sleep(1)
         print(f"{device} (Floor {device_location}) connected to Access Point {self.__name} on Floor {self.__floor_number}.")
 
     def disconnect_device(self, device, device_location) -> None:
+        """Function to disconnect devices from APs."""
         if device in self.__connected_devices:
             self.__connected_devices.remove(device)
             time.sleep(1)

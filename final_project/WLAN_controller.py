@@ -15,6 +15,7 @@ class WLANController:
         self.__access_points = {}
 
     def add_access_point(self, name, location) -> None:
+        """Function to add access points to the WLAN controller."""
         if name not in self.__access_points:
             self.__access_points[name] = AccessPoint(name, location)
             time.sleep(1)
@@ -22,6 +23,7 @@ class WLANController:
                 f"Access Point {name} (Floor {location}) added to WLAN Controller.")
 
     def connect_device(self, device, device_location) -> None:
+        """Function to connect devices to the network."""
         closest_ap = None
         min_distance = float('inf')
 
@@ -43,6 +45,7 @@ class WLANController:
                 f"No access points found within 1 floor distance for {device}.")
 
     def disconnect_device(self, device, device_location) -> None:
+        """Function to disconnect devices from the network."""
         closest_ap = None
         min_distance = float('inf')
 
