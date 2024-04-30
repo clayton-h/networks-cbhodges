@@ -23,10 +23,19 @@ def main() -> None:
     controller.connect_device("Device1", 1)
     controller.connect_device("Device2", 3)
     controller.connect_device("Device3", 8)
+    controller.connect_device("Device4", 1)
 
+    print('\t')
+    controller.print_network()
     print('\t')
 
     controller.disconnect_device("Device1", 1)
+    controller.disconnect_device("Device3", 8)
+    controller.disconnect_device("Device4", 1)
+
+    print('\t')
+    controller.print_network()
+    print('\t')
 
 
 if __name__ == "__main__":

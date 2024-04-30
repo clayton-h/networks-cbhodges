@@ -14,6 +14,13 @@ class WLANController:
         """Constructor initializes WLAN controller APs."""
         self.__access_points = {}
 
+    def print_network(self) -> None:
+        """Function to print all network information."""
+        time.sleep(1)
+        for ap_name, ap in self.__access_points.items():
+            print(
+                f"Access point {ap.name} (Floor {ap.floor_number}) online. Connected Devices: {ap.connected_devices}")
+
     def add_access_point(self, name, location) -> None:
         """Function to add access points to the WLAN controller."""
         if name not in self.__access_points:
