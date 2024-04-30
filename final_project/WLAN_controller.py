@@ -25,24 +25,25 @@ class WLANController:
     def connect_device(self, device, device_location) -> None:
         """Function to connect devices to the network."""
         closest_ap = None
-        min_distance = float('inf')
+        min_distance = 1
 
         for ap_name, ap in self.__access_points.items():
             ap_location = ap.floor_number
+
             distance = self.calculate_distance(ap_location, device_location)
 
             # Only consider APs within 1 floor distance
-            if distance <= 1:
-                if distance < min_distance:
-                    min_distance = distance
-                    closest_ap = ap_name
+            if distance < min_distance:
+                min_distance = distance
+                closest_ap = ap_name
 
         if closest_ap is not None:
             self.__access_points[closest_ap].connect_device(
                 device, device_location)
         else:
+            time.sleep(1)
             print(
-                f"No access points found within 1 floor distance for {device}.")
+                f"Connection failed! No APs found within ({min_distance}) floor of {device}.")
 
     def disconnect_device(self, device, device_location) -> None:
         """Function to disconnect devices from the network."""
