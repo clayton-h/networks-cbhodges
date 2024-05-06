@@ -82,7 +82,7 @@ class AccessPoint:
         self.__connected_devices.add(device)
         time.sleep(1)
         print(f"{device} (Floor {device_location}) connected to ")
-        print(f"Access Point {self.__name} (Floor {self.__floor_number}).")
+        print(f"Access Point {self.__name} (Floor {self.__floor_number}).\n")
 
     def disconnect_device(self, device: str, device_location: int) -> None:
         """Function to disconnect devices from APs.
@@ -95,4 +95,4 @@ class AccessPoint:
             self.__connected_devices.remove(device)
             time.sleep(1)
             print(f"{device} (Floor {device_location}) disconnected from ")
-            print(f"Access Point {self.__name} (Floor {self.__floor_number}).")
+            print(f"Access Point {self.__name} (Floor {self.__floor_number}).\n")

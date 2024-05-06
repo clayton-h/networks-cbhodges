@@ -24,7 +24,7 @@ class WLANController:
         time.sleep(1)
         for ap_name, ap in self.__access_points.items():
             print(f"Access point {ap_name} (Floor {ap.floor_number}) online.")
-            print(f"Connected Devices: {len(ap.connected_devices)}")
+            print(f"Connected Devices: {len(ap.connected_devices)}\n")
 
     def add_access_point(self, name: str, location: int) -> None:
         """Function to add access points to the WLAN controller.
@@ -37,7 +37,7 @@ class WLANController:
             self.__access_points[name] = AccessPoint(name, location)
             time.sleep(1)
             print(f"Access Point {name} (Floor {location}) ")
-            print("added to WLAN Controller.")
+            print("added to WLAN Controller.\n")
 
     def connect_device(self, device: str, device_location: int) -> None:
         """Function to connect devices to the network.
@@ -65,7 +65,7 @@ class WLANController:
         else:
             time.sleep(1)
             print(f"Connection failed! No APs found within ({min_distance}) ")
-            print(f"floor of {device} (Floor {device_location}).")
+            print(f"floor of {device} (Floor {device_location}).\n")
 
     def disconnect_device(self, device: str, device_location: int) -> None:
         """Function to disconnect devices from the network.
@@ -95,7 +95,7 @@ class WLANController:
                 device, device_location)
         else:
             print("No access point found that matches ")
-            print(f"{device} (Floor {device_location}).")
+            print(f"{device} (Floor {device_location}).\n")
 
     def calculate_distance(
             self, ap_location: int, device_location: int) -> int:
