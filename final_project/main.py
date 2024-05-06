@@ -6,7 +6,6 @@
 # By: Clayton H.
 #
 
-import time
 from WLAN_controller import WLANController
 
 
@@ -29,7 +28,10 @@ def main() -> None:
     controller.print_network()
     print('\t')
 
+    # controller.move_device("Device2", 1)
+
     controller.disconnect_device("Device1", 1)
+    controller.disconnect_device("Device2", 1)
     controller.disconnect_device("Device3", 8)
     controller.disconnect_device("Device4", 1)
 
