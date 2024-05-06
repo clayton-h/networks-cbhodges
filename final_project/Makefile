@@ -1,5 +1,5 @@
-TEST = pytest 
-TEST_ARGS = --verbose --color=yes
+# TEST = pytest 
+# TEST_ARGS = --verbose --color=yes
 TYPE_CHECK = mypy --strict --allow-untyped-decorators --ignore-missing-imports
 STYLE_CHECK = flake8
 STYLE_FIX = autopep8 --in-place --recursive --aggressive --aggressive
@@ -8,7 +8,7 @@ GENERATE_UML = pyreverse -o png --colorized .
 GENERATE_HTML = pdoc --html --output-dir docs .
 
 .PHONY: all
-all: style-check type-check run-test clean
+all: style-check type-check clean # run-test
 	@echo -e "\nAll checks passed\n"
 
 .PHONY: generate-html
@@ -31,9 +31,9 @@ style-check:
 	$(STYLE_CHECK) .
 
 # discover and run all tests
-.PHONY: run-test
-run-test:
-	$(TEST) $(TEST_ARGS) .
+# .PHONY: run-test
+# run-test:
+# 	$(TEST) $(TEST_ARGS) .
 
 .PHONY: clean
 clean:

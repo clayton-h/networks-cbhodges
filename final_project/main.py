@@ -31,7 +31,7 @@ def main() -> None:
     # controller.move_device("Device2", 1)
 
     controller.disconnect_device("Device1", 1)
-    controller.disconnect_device("Device2", 1)
+    # controller.disconnect_device("Device2", 1)
     controller.disconnect_device("Device3", 8)
     controller.disconnect_device("Device4", 1)
 

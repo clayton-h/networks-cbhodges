@@ -16,7 +16,7 @@ class WLANController:
     def __init__(self) -> None:
         """Constructor initializes WLAN controller dictionary of APs.
         """
-        self.__access_points = {}
+        self.__access_points: dict[str, AccessPoint] = {}
 
     def print_network(self) -> None:
         """Function to print all network information.
@@ -97,7 +97,8 @@ class WLANController:
             print("No access point found that matches ")
             print(f"{device} (Floor {device_location}).")
 
-    def calculate_distance(self, ap_location: int, device_location: int) -> int:
+    def calculate_distance(
+            self, ap_location: int, device_location: int) -> int:
         """Function to calculate the distance between a given AP
         and device given floor their corresponding floor numbers.
 

@@ -12,18 +12,18 @@ class AccessPoint:
     """Class that simulates an Access Point.
     """
 
-    def __init__(self, name, floor_number) -> None:
+    def __init__(self, name: str, floor_number: int) -> None:
         """Constructor initializes AP with corresponding information.
 
         Args:
             name (str): AP name
             floor_number (int): AP floor number (location)
         """
-        self.__name = name
-        self.__floor_number = floor_number
+        self.__name: str = name
+        self.__floor_number: int = floor_number
         # a set is used for better performance
         # (as the data's order is unimportant, unlike an array)
-        self.__connected_devices = set()
+        self.__connected_devices: set[str] = set()
 
     @property
     def name(self) -> str:
@@ -35,7 +35,7 @@ class AccessPoint:
         return self.__name
 
     @name.setter
-    def name(self, value) -> None:
+    def name(self, value: str) -> None:
         """Setter for AP name
 
         Args:
@@ -54,7 +54,7 @@ class AccessPoint:
         return self.__floor_number
 
     @floor_number.setter
-    def floor_number(self, value) -> None:
+    def floor_number(self, value: int) -> None:
         """Setter for AP floor number (location)
 
         Args:
@@ -64,7 +64,7 @@ class AccessPoint:
 
     # Getter for connected devices
     @property
-    def connected_devices(self) -> set:
+    def connected_devices(self) -> set[str]:
         """Getter for devices connected to an AP
 
         Returns:
@@ -72,7 +72,7 @@ class AccessPoint:
         """
         return self.__connected_devices
 
-    def connect_device(self, device, device_location) -> None:
+    def connect_device(self, device: str, device_location: int) -> None:
         """Function to connect devices to APs.
 
         Args:
@@ -84,7 +84,7 @@ class AccessPoint:
         print(f"{device} (Floor {device_location}) connected to ")
         print(f"Access Point {self.__name} (Floor {self.__floor_number}).")
 
-    def disconnect_device(self, device: str, device_location) -> None:
+    def disconnect_device(self, device: str, device_location: int) -> None:
         """Function to disconnect devices from APs.
 
         Args:
